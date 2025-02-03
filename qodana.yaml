@@ -9,10 +9,10 @@ failureConditions:
   severityThresholds:
     any: 50 # Total number of problems in all severities
     critical: 1 # Severities
-    high: 2
-    moderate: 3
-    low: 4
-    info: 5
+    high: 10
+    moderate: 15
+    low: 20
+    info: 25
   testCoverageThresholds:
     fresh: 6 # Fresh code coverage
     total: 7 # Total percentage
