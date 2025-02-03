@@ -8,7 +8,6 @@ import org.junit.Test;
 
 public class InventoryTest {
 
-    // Helper method to create a basic validator.
     private ProductValidator createValidator() {
         return new ProductValidator() {
             @Override
@@ -43,7 +42,6 @@ public class InventoryTest {
     public void testAddExistingProduct() {
         ProductValidator validator = createValidator();
         Inventory inventory = new Inventory(validator);
-        // Add a product and then add another with the same name.
         Product product1 = new Product("Laptop", 5, 1000.0);
         Product product2 = new Product("Laptop", 3, 1200.0);
         inventory.addProduct(product1);
@@ -53,7 +51,6 @@ public class InventoryTest {
         assertEquals("There should be one product after merging", 1, products.size());
 
         Product mergedProduct = products.get(0);
-        // Our implementation sums the quantities and updates the price to the new product's price.
         assertEquals("Product name should remain 'Laptop'", "Laptop", mergedProduct.name());
         assertEquals("Quantity should be merged (5 + 3)", 8, mergedProduct.quantity());
         assertEquals("Price should be updated to the new product's price", 1200.0, mergedProduct.price(), 0.001);
@@ -61,7 +58,6 @@ public class InventoryTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testInvalidProductQuantity() {
-        // This test expects an exception when creating a Product with an invalid (negative) quantity.
         new Product("Laptop", -1, 1000.0);
     }
 }
