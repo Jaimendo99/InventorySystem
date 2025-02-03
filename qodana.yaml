@@ -1,10 +1,14 @@
 version: "1.0"
 linter: jetbrains/qodana-jvm:2024.3
 profile:
-  name: qodana.recommended
+  name: qodana.recommended.full
 include:
   - name: CheckDependencyLicenses
   - name: JvmCoverageInspection
+  - name: ControlFlowStatementWithoutBraces
+  - name: CyclomaticComplexityInspection
+exclude:
+  - name: Spring.All
 failureConditions:
   severityThresholds:
     any: 50 # Total number of problems in all severities
